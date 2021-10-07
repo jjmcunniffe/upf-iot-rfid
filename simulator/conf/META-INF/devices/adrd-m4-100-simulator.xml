@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<aliases>
+	<ADRD-M4-100>
+		<id>simulator</id>
+		<ip>192.168.2.10</ip>
+		<encoding>gtin96</encoding>
+		<spec>
+		    <class>SPEC_ADRD_M4_100_03</class>
+		</spec>
+		<firmware>
+		    <class>FIRMWARE_INFO</class>
+		    <version>2</version>
+		    <revision>2</revision>
+		    <keonnCode>0090103</keonnCode>
+		</firmware>
+		<mcu>
+		    <class>com.keonn.mcu.impl.VoidMCU</class>
+		    <params>
+				<MCU_GPO_NUMBER>
+					<result>8</result>
+				</MCU_GPO_NUMBER>
+				<MCU_GPI_NUMBER>
+					<result>8</result>
+				</MCU_GPI_NUMBER>
+				<MCU_GPIO_NUMBER>
+					<result>16</result>
+				</MCU_GPIO_NUMBER>
+			</params>
+		</mcu>
+		<reader>
+			<class>READER_EVENT_SIMULATOR</class>
+			<ip>192.168.2.100</ip>
+			<!-- Sleep time (ms) between reads within the same batch -->
+			<betweenReadsPeriod>10</betweenReadsPeriod>
+			<!-- every read will take as the reader port random(1,antennasNo) -->
+			<antennasNo>4</antennasNo>
+			<!-- every read will take as the level 1 mux random(0,muxNo) -->
+			<muxNo>0</muxNo>
+			<generateNews>1</generateNews>
+			<readProbability>0.1</readProbability>
+			<epcs>000000000000000000000001,000000000000000000000002,000000000000000000000003,000000000000000000000004,000000000000000000000005,000000000000000000000006,000000000000000000000007,000000000000000000000008,000000000000000000000009,000000000000000000000010</epcs>			
+			<!-- Time (ms) between batch reads -->
+			<voidPeriod>2000</voidPeriod>
+			<!-- Deviation from voidPeriod  -->
+			<!--  Effective sleep time between bath reads is = voidPeriod + random(0,voidDeviation)-voidDeviation/2 -->
+			<voidDeviation>5</voidDeviation>
+		</reader>
+		<forceReadModes>false</forceReadModes>
+		<antennas>
+			<antenna>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>1:0:0-40;210;2</definition>
+				<locationID>loc_id</locationID>
+				<directionOrientation>-1</directionOrientation>
+			</antenna>
+			<antenna>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>2:0:0-40;210;2</definition>
+				<locationID>loc_id</locationID>
+				<directionOrientation>-1</directionOrientation>
+			</antenna>
+			<antenna>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>3:0:0-40;210;2</definition>
+				<locationID>loc_id</locationID>
+				<directionOrientation>-1</directionOrientation>
+			</antenna>
+			<antenna>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>4:0:0-40;210;2</definition>
+				<locationID>loc_id</locationID>
+				<directionOrientation>-1</directionOrientation>
+			</antenna>
+		</antennas>
+	</ADRD-M4-100>
+</aliases>
+

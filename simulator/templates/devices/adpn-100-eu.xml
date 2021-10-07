@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<aliases>
+	<ADPN_EU_100>
+	    <id>adpn@1</id>
+		<ip>0.0.0.0</ip>
+		<reader>
+			<class>ADRD_M4_100_FOR_ADPN_EU_100</class>
+		</reader>
+		<antennas>
+			<antenna>
+				<reader>1</reader>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>1:0:0-1;0;0</definition>
+			</antenna>
+			<antenna>
+				<reader>1</reader>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>2:0:0-2;0;0</definition>
+			</antenna>
+			<antenna>
+				<reader>1</reader>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>3:0:0-3;0;0</definition>
+			</antenna>
+			<antenna>
+				<reader>1</reader>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>4:0:0-4;0;0</definition>
+			</antenna>
+		</antennas>
+	</ADPN_EU_100>
+</aliases>

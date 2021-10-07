@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<aliases>
+	<ADRD-M2-50>
+		<id>adpy-105-us.01</id>
+		<ip>0.0.0.0</ip>
+		<useBuzzer>true</useBuzzer>
+		<readers>
+			<reader>
+				<class>ADRD_M2_50_Module</class>
+			</reader>
+		</readers>
+		<antennas>
+			<antenna>
+				<reader>1</reader>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>1:0:0-1;0;0</definition>
+			</antenna>
+		</antennas>
+	</ADRD-M2-50>
+</aliases>

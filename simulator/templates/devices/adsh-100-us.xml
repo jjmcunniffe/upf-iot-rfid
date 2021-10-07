@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<aliases>
+	<ADSH_100_US>
+	    <id>adsh@1</id>
+		<ip>0.0.0.0</ip>
+		<reader>
+			<class>ADRD_M4_100_FOR_ADSH_100_US</class>
+		</reader>
+		<antennas>
+			<antenna>
+				<reader>1</reader>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>1:0-40;210;2</definition>
+			</antenna>
+			<antenna>
+				<reader>1</reader>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>2:0-40;210;2</definition>
+			</antenna>
+			<antenna>
+				<reader>1</reader>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>3:0-40;210;2</definition>
+			</antenna>
+			<antenna>
+				<reader>1</reader>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>4:0-40;210;2</definition>
+			</antenna>
+		</antennas>
+	</ADSH_100_US>
+</aliases>

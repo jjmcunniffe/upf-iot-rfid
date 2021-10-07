@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<aliases>
+	<ADRD-M4-100>
+		<id>adrd-m4-w-100</id>
+		<ip>0.0.0.0</ip>
+		<reader>
+			<class>ADRD_M4_W_100</class>
+		</reader>
+		<antennas>
+			<antenna>
+				<reader>1</reader>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>1:0:0-0;0;0</definition>
+				<locationID>loc_id</locationID>
+				<conf>
+				    <class>ANTENNA_CONF</class>
+				    <power>30.5</power>
+				</conf>
+			</antenna>
+		</antennas>
+	</ADRD-M4-100>
+</aliases>

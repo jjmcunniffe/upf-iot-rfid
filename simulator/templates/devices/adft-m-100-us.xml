@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<aliases>
+	<ADFT-M-100-US>
+		<id>adft-m-100-us</id>
+		<ip>0.0.0.0</ip>
+		<slaves>0</slaves>
+		<reader>
+			<class>ADRD_M4_100_FOR_ADFT_M_100_US</class>
+			<readPower>28</readPower>
+			<sensitivity>-70</sensitivity>
+			<epcGen2>
+				<class>EPCGen2</class>
+				<invCommand>
+				    <singulation>
+				        <class>EPCGen2_Singulation</class>
+				        <session>1</session>
+						<target>A</target>
+				    </singulation>
+				</invCommand>
+			</epcGen2>
+		</reader>
+	</ADFT-M-100-US>
+</aliases>

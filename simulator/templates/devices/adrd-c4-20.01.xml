@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<aliases>
+	<ADRD-C4-20>
+		<id>adrd-c4-20</id>
+		<ip>0.0.0.0</ip>
+		<reader>
+			<class>ADRD_C_20_MODULE</class>
+		</reader>
+		<antennas>
+			<antenna>
+				<reader>1</reader>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>1:0-40;210;2</definition>
+				<locationID>loc_id</locationID>
+			</antenna>
+		</antennas>
+	</ADRD-C4-20>
+</aliases>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<aliases>
+	<ADRD-M4-100>
+		<id>adrd-m4-100</id>
+		<ip>0.0.0.0</ip>
+		<reader>
+			<class>ADRD_M4_100</class>
+			<epcGen2>
+				<class>EPCGen2</class>
+				<invCommand>
+					<!--channelIndex>1,2</channelIndex-->
+				    <singulation>
+				        <class>EPCGen2_Singulation</class>
+				        <session>1</session>
+				        <target>A</target>
+				    </singulation>
+      	 			<rfControl>
+						<class>EPCGen2_RFControl</class>
+						<active>true</active>
+						<mode>M4</mode>
+						<tari>TARI25</tari>
+					</rfControl>
+				</invCommand>
+			</epcGen2>
+		</reader>
+		<antennas>
+			<antenna>
+				<reader>1</reader>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>1:0-40;210;2</definition>
+				<locationID>loc_id</locationID>
+			</antenna>
+		</antennas>
+	</ADRD-M4-100>
+</aliases>

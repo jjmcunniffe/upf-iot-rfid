@@ -1,0 +1,55 @@
+<configuration>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+	    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      		<level>INFO</level>
+    	</filter>
+		<encoder>
+			<pattern>[%d{HH:mm:ss.SSS}] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>logs/AdvanNet.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>logs/log.${WORK_ENV}.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+			<!-- 30 days -->
+			<maxHistory>20</maxHistory>
+			
+			<timeBasedFileNamingAndTriggeringPolicy
+           		class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        		<!-- or whenever the file size reaches 10MB -->
+        		<!-- max log size 10MB*30 = 300MB -->
+        		<!-- size is calculated from the non-zipped file
+        			 final gz files will be less than 10M -->
+        		<maxFileSize>10MB</maxFileSize>
+      		</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>[logback]  %d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	
+	<!-- <logger name="net.winstone" level="ERROR"/> -->
+	<logger name="ReflectionUtil" level="ERROR"/>
+	<logger name="ObjectHelper" level="ERROR"/>
+	<logger name="net.winstone" level="WARN"/>
+	<logger name="net.winstone.core.WinstoneOutputStream" level="WARN"/>
+	<logger name="net.winstone.core.ObjectPool" level="WARN"/>
+	<logger name="net.winstone.core.listener.HttpListener" level="WARN"/>
+	<logger name="net.winstone.core.SimpleRequestDispatcher" level="WARN"/>
+	<logger name="net.winstone.core.listener.RequestHandlerThread" level="WARN"/>
+
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+	</root>
+	
+	<root level="info">
+		<appender-ref ref="FILE" />
+	</root>
+
+</configuration>

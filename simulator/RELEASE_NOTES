@@ -1,0 +1,975 @@
+Keonn AdvanNet v2.3.14_06 new features and fixed bugs (from v2.3.14_05):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed a bug that prevented specific antenna settings to load persisted values.
+
+CHANGES
+- Added the option to execute only the calibrators at start time.
+
+Keonn AdvanNet v2.3.14_05 new features and fixed bugs (from v2.3.14_04):
+----------------------------------------------------------------------
+CHANGES
+- Added generic FCC sub-band from 915 MHz to 928 MHz
+  NA  (918250,923250,923750,918750,926250,921250,916750,926750,921750,925250,916250,922750,917250,919750,927250,922250,920750,925750,920250,924750,915750,919250,924250,917750)
+  NA2 (926000,919600,924800,922600,921600,925200,918400,919200,923600,921800,923200,920200,919400,921200,926600,926800,920800,924400,923800,921000,924600,922000,917800,922800,919000,917400,926400,924000,919800,926200,925000,918600,918800,923000,918200,927000,925400,922200,922400,917600,920400,925800,920600,924200,918000,927200,920000,921400,923400,925600)
+
+- Added generic FCC sub-band from 920 MHz to 924 MHz
+  NA  (923250,921250,921750,922750,922250,920750)
+  NA2 (922600,921600,921800,923200,921200,920800,921000,922000,922800,923000,922200,922400,920600,921400,923400)
+
+Keonn AdvanNet v2.3.14_04 new features and fixed bugs (from v2.3.14_03):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed bug in web app that prevented reading/writing password protected memory
+- Fixed kill option bug
+
+Keonn AdvanNet v2.3.14_03 new features and fixed bugs (from v2.3.14_02):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added Kill option in AdvanPay return mode
+
+Keonn AdvanNet v2.3.14_02 new features and fixed bugs (from v2.3.14_01):
+----------------------------------------------------------------------
+CHANGES
+- The ADFilter mute is now disabled on any stop operation
+NEW FEATURES:
+- Added RSSI column in SQL export
+
+Keonn AdvanNet v2.3.14 new features and fixed bugs (from v2.3.13_02):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Minor changes for AdvanReader-m-150.04
+- Added Kill Tag option in AdvanPay payment mode
+- Added possibility to configure off periods on read modes.
+  This allow to configure the devices to automatically stop on certain periods
+- TimeFilter is replaced by an adaptive filter that requires less configuration and reduces false alarms
+- SQL cache for inventory and events.
+
+CHANGES
+- The tag and events cache uses now a ttl value of 1200 ms
+This change is less than S1 time is is designed to have a better feeling when using systems with audui alarms
+
+Keonn AdvanNet v2.3.13_04 new features and fixed bugs (from v2.3.13_03):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed the MCU_SENSOR_NOTIFICATION_ENABLE parameter to effectively disable sensor messages
+
+Keonn AdvanNet v2.3.13_03 new features and fixed bugs (from v2.3.13_02):
+----------------------------------------------------------------------
+NEW FEATURES:
+- USBHID service can now post-process the epc or SKU before being sent through the USB.
+
+Keonn AdvanNet v2.3.13_02 new features and fixed bugs (from v2.3.13_01):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added skus to alarm messages.
+
+Keonn AdvanNet v2.3.13_01 new features and fixed bugs (from v2.3.13):
+----------------------------------------------------------------------
+BUG FIXES:
+- Added sCloud service configuration to aliases.xml
+- Fixed a bug in AsynchTrackMissingReadMode that forced to start the calibration only when was starting to read tags.
+
+NEW FEATURES:
+- Added dynamic calibration to AsynchTrackMissingReadMode
+
+Keonn AdvanNet v2.3.13 new features and fixed bugs (from v2.3.12_03):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed a bug that prevented using the second mux level
+- Fixed a bug that prevented the USB HID Service to start when disabled in configuration
+- Fixed the use of calibrators in Sequential modes
+
+NEW FEATURES:
+- Added SCloud service
+
+Keonn AdvanNet v2.3.12_03 new features and fixed bugs (from v2.3.12_02):
+----------------------------------------------------------------------
+BUG FIXES:
+- Solved a bug on Autonomous Track Missing
+
+Keonn AdvanNet v2.3.12_02 new features and fixed bugs (from v2.3.12_01):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added alert to not use IE or Edge browsers
+
+Keonn AdvanNet v2.3.12_01 new features and fixed bugs (from v2.3.12):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Collapse options in AdvanNet Manager
+
+Keonn AdvanNet v2.3.12 new features and fixed bugs (from v2.3.11):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed the sequential antenna iteration in adrd-m1-60
+- Fixed the condition in the CSV exporter that delayed exports in S0
+
+CHANGES
+- Added new options in TRACK_MISSING operation mode
+- Optimised TRACK_MISSING operation
+
+NEW FEATURES:
+- Switch read mode feature can be constrained to a defined list of modes
+- Added the conf options to select the EAS bit in BC encoding
+- Added support for Singapore band 920 - 925 MHz
+- Added HTTP-EAS mode
+- Add Rx operation in EMC console
+
+Keonn AdvanNet v2.3.11_04 new features and fixed bugs (from v2.3.11_03):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added the parameter forceSetLocData on LOC_RESOLVER to force the Antenna location on Autonomous mode
+
+- solved bug when using Sequential read mode and a SQL exporter
+
+
+Keonn AdvanNet v2.3.11_03 new features and fixed bugs (from v2.3.11_02):
+----------------------------------------------------------------------
+CHANGES
+- enableTID set to true by default in AdvanPay modes
+
+NEW FEATURES:
+- Added options to prevent false alarms during replenishment operations in EPC-BULK alarm mode
+
+Keonn AdvanNet v2.3.11_02 new features and fixed bugs (from v2.3.11_01):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed minor bug when saving the date (hwclock)
+- Fixed GUI presentation while operating in sequential mode, where location didn't match the antenna.
+- Fixed AdvanPay payment/return without TID, where several queued tags failed to be written after one successful operation
+
+NEW FEATURES:
+- Added detection for GTIN-8 codes
+
+Keonn AdvanNet v2.3.11_01 new features and fixed bugs (from v2.3.11):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed the SEQUENTIAL operation with custom sensitivity per antenna
+
+CHANGES:
+- Added antenna conf support in EMC Console Utility
+
+Keonn AdvanNet v2.3.11 new features and fixed bugs (from v2.3.10_05):
+----------------------------------------------------------------------
+BUG FIXES:
+- Added SQL connection timeout
+- Fixed REST request operation bug on high load systems
+- Fixed the MultiGPO actions
+
+CHANGES:
+- IO slave failure does not disable completely the IO system
+- Added ReaderParam RF_HOP_TABLE. RF_HOP_TABLE holds the current hop table, while RF_FREQ_TABLE holds a static view of all allowed carriers.
+- Sensor events are now sent in a single message containing multiple measures
+- Adjusted the sensor calculations
+- BULK_EAS alarm mode now packs all epcs in one single message
+- Added CSV column for EVENT detail2
+
+NEW FEATURES:
+- Added a basic JSON REST API to change the device settings
+- Added new read mode AUTONOMOUS_TRACK_MISSING that performs n initial read cycle and then tracks incoming and outcoming tags.
+- Added support for AdvanGuard and AdvanSafe backed by AdvanReader-150.03
+- USB sent events can now be posted to AdvanCloud as logs
+
+Keonn AdvanNet v2.3.10_05 new features and fixed bugs (from v2.3.10_04):
+----------------------------------------------------------------------
+BUG FIXES:
+- EPCGen2 mask works now with a mask length of 92 bits
+- Fixed the propagation of the decoded object in read events
+
+Keonn AdvanNet v2.3.10_04 new features and fixed bugs (from v2.3.10_03):
+----------------------------------------------------------------------
+BUG FIXES:
+- AsynchFastMux read mode works again.
+- Fixed the SynchRead mode bit negation
+
+NEW FEATURES:
+- Added the possibility to create new CSV file on any CSV disk access. The created CSV will contain the date of creation.
+
+Keonn AdvanNet v2.3.10_03 new features and fixed bugs (from v2.3.10_02):
+----------------------------------------------------------------------
+BUG FIXES:
+- TID read errors while doing write operations
+
+Keonn AdvanNet v2.3.10_02 new features and fixed bugs (from v2.3.10_01):
+----------------------------------------------------------------------
+BUG FIXES:
+- AdvanPay modes now generate events for those tags that have apparently failed to be written, but are.
+- TID length in write operations can now be set or it is guessed.
+
+Keonn AdvanNet v2.3.10_01 new features and fixed bugs (from v2.3.10):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed bug in the reading stop when asynchOffTime is greater than 0
+
+Keonn AdvanNet v2.3.10 new features and fixed bugs (from v2.3.1_05):
+----------------------------------------------------------------------
+CHANGES:
+- Improved the handling of TCP clients at socket 3177
+- Improved SQL export performance
+- Reduced memory consumption and object creation
+
+NEW FEATURES:
+- Added the possibility to read/write tag memory banks
+- Now is possible to configure muxes in Autonomous mode.
+- Added support for remote invocation of module CW commands
+- Added simulator options
+- Added FastID
+- Added SQL events in AdvanPay modes
+
+BUG FIXES:
+- Fixed bug in the self-cleaning of caches
+- Fixed minor bugs in AdvanPay control LEDs
+- Fixed reconnect issue in SQL connections
+
+Keonn AdvanNet v2.3.1_05 new features and fixed bugs (from v2.3.1_04):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed the change mode from PAY_MODE to RETURN_MODE. Under some circumstances after the change the device was not started.
+
+Keonn AdvanNet v2.3.1_04 new features and fixed bugs (from v2.3.1_03):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed the handling of socket 3177 clients
+
+Keonn AdvanNet v2.3.1_02 new features and fixed bugs (from v2.3.1_01):
+----------------------------------------------------------------------
+CHANGES:
+- Added virtual bands based on FCC to be used with nano modules.
+
+Keonn AdvanNet v2.3.1_02 new features and fixed bugs (from v2.3.1_01):
+----------------------------------------------------------------------
+NEW FEATURES:
+- AdvanPay modes now support up to 3 passwords, including blank password.
+
+Keonn AdvanNet v2.3.1_01 new features and fixed bugs (from v2.3.1):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fix the EPC bulk alarm mode notifications to the cloud
+
+Keonn AdvanNet v2.3.1 new features and fixed bugs (from v2.3.0-04):
+----------------------------------------------------------------------
+CHANGES:
+- Changed the ADPY service options. Send options now include the APDY events: TAG_ADPY_PAYMENT, TAG_ADPY_RETURN, TAG_ADPY_READ
+- Added buzzer and speaker events for: payment, TAG_ADPY_PAYMENT, TAG_ADPY_RETUR, TAG_ADPY_READ and DEVICE_ERROR
+- AdvanPay-110/160 LEDs flash upon any DEVICE_ERROR event 
+- Added a link to the wiki when the CSV icon is dimmed
+- Updated Mercury API to 1.27
+
+NEW FEATURES:
+- Supports the new json cloud format
+- Added support for Chile band in Nano based devices
+
+BUG FIXES:
+- fix the update of the filter mask through AdvanNet Manager
+
+Keonn AdvanNet v2.3.0-04 new features and fixed bugs (from v2.1.3-03):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed the issue with adding several actions to the same event. In particular a buzzer and a speaker actions
+
+Keonn AdvanNet v2.3.0-03 new features and fixed bugs (from v2.1.3-02):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added support for AdvanPay control LED panel
+- Added support for changing the working mode from input lines
+
+Keonn AdvanNet v2.3.0-02 new features and fixed bugs (from v2.1.3-01):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added support for Psiki GPS
+
+Keonn AdvanNet v2.3.0-01 new features and fixed bugs (from v2.1.3):
+----------------------------------------------------------------------
+BUG FIXES:
+- Minor fixes in alarm modes
+
+NEW FEATURES:
+- Added keyboard modifiers in AdvanPay services. This allows French and other country keyboards to work
+
+Keonn AdvanNet v2.3.0 new features and fixed bugs (from v2.1.3-rc1):
+----------------------------------------------------------------------
+CHANHGES:
+- Added the possibility to control Series 50 and Series 100 readers from an embedded reader. 
+- Added a generic POST/PUT payload into the URLMessagingService
+- Added an option to handle events in one reader from a another reader
+
+BUG FIXES:
+- Minor fixes 
+
+Keonn AdvanNet v2.3.0-rc1 new features and fixed bugs (from v2.1.3-beta2):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed the EPC writing in enable/disable modes when using an arbitrary offset 
+
+NEW FEATURES:
+- Added support for HTTPS two-way authentication. Although it cannot be done by configuration only.
+
+Keonn AdvanNet v2.3.0-beta2 new features and fixed bugs (from v2.1.3-beta1):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added support for GTIN-12 and GTIN-13
+
+CHANGES:
+- ADPY USB event messages now send the EPC to the cloud
+
+Keonn AdvanNet v2.3.0-beta1 new features and fixed bugs (from v2.1.3):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added support for AdvanReader-m-60
+- Added support for AdvanPay-110
+- Added support for AdvanPay-160
+- Added support for M6e-Nano
+
+CHANGES:
+- Switched Mercury API to 1.23.0.20
+
+Keonn AdvanNet v2.1.6-beta2 new features and fixed bugs (from v2.1.6-beta1):
+---------------------------------------------------------------------
+BUG FIXES:
+- Fixed the EAS enable/disable error in the Memory Bank offset interpretation
+
+Keonn AdvanNet v2.1.6-beta2 new features and fixed bugs (from v2.1.6-beta1):
+---------------------------------------------------------------------
+CHANGES:
+- Added debug flags
+- Added Chile sub-bands
+
+BUG FIXES:
+- Fixed Chinese region in AdvanLook products
+- Added right column values to CSV exported GPI events
+- Fixed the update network settings that sometimes just causes a page restart.
+
+
+Keonn AdvanNet v2.1.6-beta1 new features and fixed bugs (from v2.1.5_01):
+---------------------------------------------------------------------
+NEW FEATURES:
+- Tag lock operations are available from REST interface
+- Added write power in AdvanNet Manager web interface
+- Added new CHILE_914_928 sub-band for the forthcoming regulation
+- The system tab is now available even if no device is connected
+- Added the possibility to execute scripts from the system tab
+- Decoupled the device IP and RFReader address, this allows to change the IP from AdvanNet host in AdvanLook like products
+- Added native Linux GPOMulti operations
+
+CHANGES:
+- Added AdvanMirror connector
+- Added possibility to recover EPCs in NXP-EAS Alarm mode.
+- In EPC_EAS_ALARM mode the timeWindow settings can be changed from AdvanNet Manager
+- In EPC_EAS_ALARM mode, large timeWindow values does no prevent events from being processed
+- Added a mechanism to force the loading of mismatched and upgrade of configuration files
+- Read tags with several layers, are now organised by time, the latest read is the first layer.
+- Changed the maxRepeatPeriod AdvanCloud setting from milli seconds to seconds
+- Improved the CSV exporter, on embedded systems it can export more than 500 lines/s continuously.
+
+BUG FIXES:
+- Fixed bug in the refresh of the read epcs in the web interface. Now the latest read in time is displayed. 
+
+Keonn AdvanNet v2.1.5_02 new features and fixed bugs (from v2.1.5_01):
+---------------------------------------------------------------------
+CHANGES:
+- Improved performance in the EAS_ENABLE and EAS_DISABLE alarm modes
+
+Keonn AdvanNet v2.1.5_01 new features and fixed bugs (from v2.1.5):
+---------------------------------------------------------------------
+BUG FIXES:
+- Fixed bug in EPCGen2 filter adjustment to work with TM modules
+
+Keonn AdvanNet v2.1.5 new features and fixed bugs (from v2.1.4_05):
+---------------------------------------------------------------------
+BUG FIXES:
+- In AdvanNet Manager, the time and time zone is updated after an update operation
+
+CHANGES:
+- Changed root password in AdvanNetManager
+- Removed filter settings from tag operations description
+- Removed the default 1 second delay when starting the RF operation from AdvanNet Manager
+- The system supports up to 4 concurrent clients in 3177 ports
+- It is possible to specify that the CSV files export date/times with time zones on it.
+
+NEW FEATURES:
+- Added the possibility to send alarm events to AdvanCloud.
+- Added the possibility to send alarm ignored tags in EPC_EAS mode to AdvanCloud.
+- Added description field into MCU objects.
+- Added Commissioning operation.
+- Added Kill tag operation.
+- Added NXP EAS bit alarm change operation.
+- Added NXP EAS bit alarm check.
+- Added support for AdvanReader-m2-60
+
+
+Keonn AdvanNet v2.1.4_05 new features and fixed bugs (from v2.1.4_04):
+----------------------------------------------------------------------
+CHANGES:
+- Upon receiving a HIGH_RETURN_LOSS error, the system will stop for 
+a configured amount of time (5 minutes by default) before attempting to
+resume normal operation.
+- Improved event handling performance
+- Event queue and maximum sizes are divided per event types.
+
+BUG FIXES:
+- Fixed the events persistence in SQL processors
+
+Keonn AdvanNet v2.1.4_04 new features and fixed bugs (from v2.1.4_03):
+----------------------------------------------------------------------
+BUG FIXES:
+- Removed the network tab help, that caused the network settings to be applied.
+
+CHANGES:
+- Enabled by default the GPI and SENSOR events
+
+Keonn AdvanNet v2.1.4_03 new features and fixed bugs (from v2.1.4_02):
+----------------------------------------------------------------------
+BUG FIXES:
+- The reader port does now appear in all Alarm events
+- The loading of the persisted Messaging service data is now fixed 
+
+Keonn AdvanNet v2.1.4_02 new features and fixed bugs (from v2.1.4_01):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added AdvanCloud settings exporter 
+- Added reboot support in adlk devices
+
+BUG FIXES:
+- Fixed the size of some internal caches that may cause OOM errors in embedded devices: AdvanSafe and others.
+
+Keonn AdvanNet v2.1.4_01 new features and fixed bugs (from v2.1.4):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed The Session and Target settings in the READMODE_EPC_EAS_DISABLE and READMODE_EPC_EAS_ENABLE read modes
+
+Keonn AdvanNet v2.1.4 new features and fixed bugs (from v2.1.3_04):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed a bug that prevented devices to be discovered after an error in the validation process of a previous device.
+
+CHANGES:
+- Changed the internal caching system. One cache holds just the tags ids and the other holds any read.
+
+NEW FEATURES:
+- Added default CSV columns
+- Support for AdvanReader-m2-150.03 products
+- Added keepAllReads settings in AUTONOMOUS read mode
+- Added support for downloading cached data
+- Added support for Taiwanese band. Support is based on FCC.
+- Added GPI Start/Stop trigger for 150 Series readers.
+- Fixed the startRFOp operation when triggers are in used.
+- The CSV files can now store GPI events created by AdvanReader-100 triggers
+- Event listeners can be defined along with a condition on the Event object
+- Added connector for AdvanCloud in AdvanSafe
+
+Keonn AdvanNet v2.1.3_04 new features and fixed bugs (from v2.1.3_03):
+----------------------------------------------------------------------
+CHANGES:
+- Added embedded tests in Java for AdvanReader 150 Series revision 03 
+
+Keonn AdvanNet v2.1.3_03 new features and fixed bugs (from v2.1.3_02):
+----------------------------------------------------------------------
+CHANGES:
+- Added validation nodes for new M6e-M firmware
+
+Keonn AdvanNet v2.1.3_02 new features and fixed bugs (from v2.1.3_01):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed stop bug in monitor page, in the asynch device controller with synch devices
+- Fixed the problem of issuing several identical GPO operations at the same time.
+
+Keonn AdvanNet v2.1.3_01 new features and fixed bugs (from v2.1.3):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed SQL Alarm mode when using the time filter.
+
+Keonn AdvanNet v2.1.3 new features and fixed bugs (from v2.1.2_01):
+----------------------------------------------------------------------
+NEW FEATURES:
+- In embedded devices, added the possibility to download all configuration files.
+- Supported traditional Chinese Windows systems.
+- Added the possibility to force an encoding for Windows Command Prompt output.
+- Added a NoRepeat implementation of TagAntennaFilter
+- Added GPOOperation in REST interface in Series 100 devices
+- Added support for Brazilian and Peruvian bands. Support is based on FCC.
+- SEQUENTIAL read mode
+	Added FastMode parameter
+	Added a select operation
+- FAST_MULTIPLEXING read mode
+	Added FastMode parameter
+	Added a select operation
+- EAS_EPC_ENABLE read mode
+	Added FastMode parameter
+	Added a select operation to preselect the tags where to apply the enable/disable operation
+	Added a TID option to have better control on write data operations
+	Enable mask works now at hex level. It is possible to update only 4 bits only, the minimum update unit was 16 bits.
+- EAS_EPC_DISABLE read mode
+	Added FastMode parameter
+	Added a select operation to preselect the tags where to apply the enable/disable operation
+	Added a TID option to have better control on write data operations
+	Enable mask works now at hex level. It is possible to update only 4 bits only, the minimum update unit was 16 bits.
+- EAS_SQL_ALARM read mode
+	Added FastMode parameter
+	Added a select operation to preselect tags that will trigger SQL queries
+	Added Query TTL parameter
+	Added Time filter parameters
+	Added startup calibrator parameters
+- EAS_EPCBULK_ALARM read mode
+	Added FastMode parameter
+	Added a select operation
+	Added startup calibrator parameters
+
+CHANGES:
+- AdvanCloudBus source code has been removed. AdvanCloudBus library is now used.
+- MULTI_GPO_ACTION is now more efficient when used in the 50 Series.
+- Adjusted operation in adlk like devices
+- Change of parameters for ipconfig /all with Chinese Traditional in Windows Systems.
+
+BUG FIXES:
+- Fixed bug with insertion of rows into a database with timestamp.
+
+Keonn AdvanNet v2.1.2_01 new features and fixed bugs (from v2.1.2):
+----------------------------------------------------------------------
+CHANGES:
+- Adjusted the settings of the AdvanReader-m4-100 GPI trigger.
+
+BUG FIXES:
+- The SQL processor does not export now events when disabled.
+
+Keonn AdvanNet v2.1.2 new features and fixed bugs (from v2.1.1_02):
+----------------------------------------------------------------------
+CHANGES:
+- The mask length of filters is now bit wise.
+- The filter may use any mask length
+
+KNOWN ISSUES:
+- When the EPCGen2 filter is used the mask length must be 8-bit multiple in devices based on M6e and M6e-M.
+
+Keonn AdvanNet v2.1.1_02 new features and fixed bugs (from v2.1.1_01):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added TID option in Alarm read modes
+
+BUG FIXES:
+- Fixed bug with the Software filter.
+
+Keonn AdvanNet v2.1.1_01 new features and fixed bugs (from v2.1.1):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed user preferences in embedded systems with several network interfaces
+
+NEW FEATURES:
+- Added frequency entry in the CSV files
+
+Keonn AdvanNet v2.1.1 new features and fixed bugs (from v2.1.0_01):
+----------------------------------------------------------------------
+NEW FEATURES:
+- AdvanReader-150.03 sensors are now fully supported
+
+CHANGES:
+- The StrayTagCalibrator now generates TID list, if TID is enabled.
+- The Time filter now uses the TID if present.
+
+BUG FIXES:
+- Fixed TID handling
+- Fixed bugs in AdvanReader-m2-50 derived devices when using the reader port sensitivity
+
+Keonn AdvanNet v2.1.0_01 new features and fixed bugs (from v2.1.0):
+----------------------------------------------------------------------
+NEW FEATURES:
+- The CSV file can contain the location ID value. It is identified by LOCATION_ID
+
+CHANGES:
+- Changed REST inventory operation. It now post-processes read data.
+
+BUG FIXES:
+- CSV problem to create files under relative paths
+- Corrected EPCGen2 filter overriding of static definition and mode definition
+
+Keonn AdvanNet v2.1.0 new features and fixed bugs (from v2.1.0-rc2):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added GPI trigger for Series 200
+- Added the option of use any filter length (any multiple of byte)
+
+CHANGES:
+- In manager, when switching between device modes the settings are not lost
+
+
+Keonn AdvanNet v2.1.0-rc2 new features and fixed bugs (from v2.1.0-rc1):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added EPC Bulk alarm
+- Added Bus time filter
+- Added filter options to Autonomous mode
+
+
+Keonn AdvanNet v2.1.0-rc1 new features and fixed bugs (from v2.0.3):
+----------------------------------------------------------------------
+CHANGES:
+- Optimized xml data format
+- Optimized processing time
+- Changed AdvanNetManager to use JSON data for inventory operations
+
+
+Keonn AdvanNet v2.0.3 new features and fixed bugs (from v2.0.2):
+----------------------------------------------------------------------
+CHANGES:
+- Optimized the tracking system to reduced disconnect/reconnect detection times.
+- Update to ThingMagic Mercury API 1.21.4.61
+NEW FEATURES:
+- Added timeout configuration options for AdvanReader Series 100 devices.
+
+
+Keonn AdvanNet v2.0.2 new features and fixed bugs (from v2.0.1_02):
+----------------------------------------------------------------------
+CHANGES:
+- Added support for the AdvanReader-m-150.03
+- Lantronix TCP port cam be parametrized
+- EPCAlarmMode SW filter is now enabled by default. This is to avoid non-matching
+responses from the EPC Gen2 filter.
+NEW FEATURES:
+- Added cleanBufferOnSynchRead parameter in AUTONOMOUS read mode
+BUG FIXES:
+- Fixed wrong generation of SGTIN96 under some circumstances
+- Windows native processes are now forced to close in case of errors
+- AdvanSafe: fixed synching disks after saving user preferences
+- AdvanSafe: fixed wrong operation when no network is available
+
+Keonn AdvanNet v2.0.1_02 new features and fixed bugs (from v2.0.1):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed an bug in FastAsynch reading mode
+
+Keonn AdvanNet v2.0.1 new features and fixed bugs (from v2.0.0):
+----------------------------------------------------------------------
+CHANGES:
+- Added support for the new Lantronix XPort for AdvanReader-m2-50
+
+BUG FIXES:
+- Fixed an error in the network management in Mac OSX that required access to Internet to load network settings
+- Fixed a problem in the network module that performed the initial network interfaces loading twice.
+- Fixed a bug that prevented devices from being connected if the system started up before the device was up.
+
+Keonn AdvanNet v2.0.0 new features and fixed bugs (from v2.0.0-rc2):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added Time filter in EAS EPC based operation mode
+- Added SQL Alarm mode
+- Added hysteresis support into sensor functionality
+
+CHANGHES:
+- Detected network interfaces added or removed by the OS. Those changes are applied
+to device self-discovery or others.
+
+BUG FIXES:
+- Fixed an error when stopping module applications while they where still loading.
+- Removed an error message when shutting down AdvanNet.
+- Removed unnecessary error messages.
+
+Keonn AdvanNet v2.0.0-rc2 new features and fixed bugs (from v2.0.0-rc1):
+----------------------------------------------------------------------
+CHANGHES:
+- Changed the AdvanNet Discovery Protocol when AdvanNet and AdvanNetLib apps run in the same machine 
+
+
+Keonn AdvanNet v2.0.0-rc1 new features and fixed bugs (from v1.5.5):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added access to log files from the GUI.
+- Added the possibility to look up devices directly by IP
+- Settings can be stored per device
+- Date and Time settings can be changed through a REST operation
+
+CHANGHES:
+- Added Java AdvanNetLib. Involved a major refactoring of the code base.
+- Improved antenna configuration.
+
+
+Keonn AdvanNet v1.5.7 new features and fixed bugs (from v1.5.6_01):
+----------------------------------------------------------------------
+
+
+Keonn AdvanNet v1.5.6_01 new features and fixed bugs (from v1.5.6):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed repeated event in events&actions page
+- Clean up the definitions and configurations for adrd-150 and adsf-150
+
+Keonn AdvanNet v1.5.6 new features and fixed bugs (from v1.5.5):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Improved CSV exporter. It can generates one file per EPC.
+CHANGES:
+- Modified AdvanPay codification
+BUG FIXES:
+- Mac OSX self-discovery
+
+Keonn AdvanNet v1.5.5 new features and fixed bugs (from v1.5.4):
+----------------------------------------------------------------------
+CHANGHES:
+- Added support for polish Windows systems.
+
+Keonn AdvanNet v1.5.4 new features and fixed bugs (from v1.5.3):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed EPCGen2 filter in select operations
+
+Keonn AdvanNet v1.5.3 new features and fixed bugs (from v1.5.2):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Devices can added directly by IP in case the self-discovery fails. Not available in GUI.
+- Fixed EPCGen2 filter in select operations
+
+BUG FIXES:
+- Fixed the write error in AdvanReader-m2-50
+
+Keonn AdvanNet v1.5.2 new features and fixed bugs (from v1.5.1):
+----------------------------------------------------------------------
+CHANGHES:
+- Internal refactoring to allow AdvanNetLib to be developed
+- adrd-m2-50 self-discovery has been improved
+
+Keonn AdvanNet v1.5.1 new features and fixed bugs (from v1.5.1-rc2):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added location into device configuration 
+
+Keonn AdvanNet v1.5.1-rc2 new features and fixed bugs (from v1.5.1-rc1):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added AdvanNet runtime Java library to control AdvanNet runtime from a Java application 
+
+Keonn AdvanNet v1.5.1-rc1 new features and fixed bugs (from v1.5.0-beta2):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added support for adrd-m2-50
+- Added support for installing AdvanNet as a windows service
+
+Keonn AdvanNet v1.5.0-beta2 new features and fixed bugs (from v1.5.0-beta1):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added support for adrd-m-150 with M6e
+- Improved support against network failures
+
+Keonn AdvanNet v1.5.0-beta1 new features and fixed bugs (from v1.4.x):
+----------------------------------------------------------------------
+NEW FEATURES:
+- AdvanPay can be configured to work with adrd-m2-50
+
+Keonn AdvanNet v1.4.1-01 new features and fixed bugs (from v1.4.0-00):
+----------------------------------------------------------------------
+BUG FIXES:
+- Corrected network settings error in Danish windows systems
+NEW_FEATURES:
+- Discovery process can use specific network interfaces by MAC address
+
+
+Keonn AdvanNet v1.4.1-00 new features and fixed bugs (from v1.4.0-rc2):
+----------------------------------------------------------------------
+NEW_FEATURES:
+- Added support for AdvanReader-m4-100 fw 2.2
+
+BUG FIXES:
+- Corrected network settings error in Italian windows systems
+
+Keonn AdvanNet v1.4.0-rc2 new features and fixed bugs (from v1.4.0-rc1_02):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed disconnection issues in AdvanReader-m2-50
+
+Keonn AdvanNet v1.4.0-rc1_02 new features and fixed bugs (from v1.4.0-rc1_01):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed wrong device identification for static configured devices that are not connected at AdvanNet boot time.
+
+CHANGES:
+- Remove unnecessary library dependencies.
+
+Keonn AdvanNet v1.4.0-rc1_01 new features and fixed bugs (from v1.4.0-rc1):
+----------------------------------------------------------------------
+BUG FIXES:
+- The Winstone cache now is different on each software version.
+- Fixed the periodical connect errors.
+
+NEW_FEATURES:
+- GPI trigger for AdvanReader-m4-100
+- CSV exporter can now be controlled by the triggers to generate one file every time a trigger is enabled.
+
+Keonn AdvanNet v1.4.0-rc1 new features and fixed bugs (from v1.3 branch):
+----------------------------------------------------------------------
+NEW_FEATURES:
+- Events & Actions framework.
+- Configuration changes can be persisted to disk.
+- Configuration can be exported and imported back.
+
+CHANGES:
+- Web application is accessed without any prefix, at http://machine-ip:3161
+
+Keonn AdvanNet v1.3.0 new features and fixed bugs (from v1.2 branch):
+----------------------------------------------------------------------
+NEW_FEATURES:
+- New web user interfaces with full control on GPIO and sensors.
+- Improved antenna management.
+- AdvanReader-m4-100 uses now the latest internal RFID firmware.
+- Improved read modes.
+
+Keonn AdvanNet v1.2.2_05 new features and fixed bugs (from v1.2.2_04):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added cron-like configuration for reading synch devices
+
+Keonn AdvanNet v1.2.2_04 new features and fixed bugs (from v1.2.2_03):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added simple xml messages for read events: hi, by, move and inventory.
+These evenst are useful to integrate with 3rd party systems.
+
+
+Keonn AdvanNet v1.2.2_03 new features and fixed bugs (from v1.2.2_01):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Data can be injected into AdvanNet. This is useful to use data from 
+handheld readers. NORDIC_ID csv file format supported.
+
+
+Keonn AdvanNet v1.2.2_01 new features and fixed bugs (from v1.2.2):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed error message in we interface when changing some EPCGen2 options.
+The option was changed but an error popup was displayed
+
+
+Keonn AdvanNet v1.2.2 new features and fixed bugs (from v1.2.1):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed bug in self-discovery on french windows machines
+
+
+Keonn AdvanNet v1.2.1 new features and fixed bugs (from v1.2.0):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Java API can now use synch commands while in autonomous mode
+
+
+Keonn AdvanNet v1.2.0 new features and fixed bugs (from v1.2.0-rc5):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Improved REST interface for new samples
+
+
+Keonn AdvanNet v1.2.0-rc5 new features and fixed bugs (from v1.2.0-rc3):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added support for Lantronix MatchPort AR fw 5.1.0.0R10
+
+
+Keonn AdvanNet v1.2.0-rc3 new features and fixed bugs (from v1.2.0-beta1):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added SQL exporter
+
+CHANGES:
+- AdvanReader is inited when an operation is requested.
+
+BUG FIXES:
+- Minor bug fixes
+
+
+Keonn AdvanNet v1.2.0-beta1 new features and fixed bugs (from v1.1.5):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added reader and network management through REST and web interface
+Keonn AdvanNet v1.1.5_02 new features and fixed bugs (from v1.1.5_01):
+----------------------------------------------------------------------
+BUG FIXES
+- Fixed the use of Gen2 filter in AdvanReader
+
+
+Keonn AdvanNet v1.1.5_01 new features and fixed bugs (from v1.1.5):
+----------------------------------------------------------------------
+BUG FIXES
+- Fixed an incorrect management of the GPO ports in ADRD when no mux where defined.
+
+
+Keonn AdvanNet v1.1.5 new features and fixed bugs (from v1.1.4):
+----------------------------------------------------------------------
+IMPORTANT NOTICE
+- This version is the last version to support the old way of configuring readers
+and antennas
+
+
+Keonn AdvanNet v1.1.4 new features and fixed bugs (from v1.1.3):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added AdvanNet monitor html page.
+- Added start/stop operations on devices
+- Improves monitoring of devices
+Keonn AdvanNet v1.1.3 new features and fixed bugs (from v1.1.2):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added support for ADRDw (wifi module)
+- Added support for ADMT-100 and ADFT-100
+
+
+Keonn AdvanNet v1.1.2 new features and fixed bugs (from v1.1.1):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added the possibility to handle AdvanReader as a device
+
+BUG FIXES:
+- Fixed path handling in regular expression operations
+
+
+Keonn AdvanNet v1.1.1 new features and fixed bugs (from v1.1.0):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added ADMT, ADFT, ADTR and ADSH definition
+
+
+Keonn AdvanNet v1.1.0 new features and fixed bugs (from v1.0.7):
+----------------------------------------------------------------------
+NEW FEATURES:
+- Added devices abstraction and basic support
+- Added ADPN definition
+- Added http REST services
+- Added Impinj notify/listener reading mode
+
+
+Keonn AdvanNet v1.0.7 new features and fixed bugs (from v1.0.6):
+----------------------------------------------------------------------
+BUG FIXES:
+- Fixed connectivity problems in Impinj driver
+
+
+Keonn AdvanNet v1.0.6 new features and fixed bugs (from v1.0.5):
+----------------------------------------------------------------------
+- Minor changes
+
+
+Keonn AdvanNet v1.0.5 new features and fixed bugs (from v1.0.4):
+----------------------------------------------------------------------
+NEW FEATURES
+- Added basic support for testing products
+
+
+Keonn AdvanNet v1.0.4 new features and fixed bugs (from v1.0.3):
+----------------------------------------------------------------------
+NEW FEATURES
+- Added basic support for Intermec IF2
+- Added CSV exporter of captured data
+- Added xml message filtering
+
+
+Keonn AdvanNet v1.0.3 new features and fixed bugs (from v1.0.2):
+----------------------------------------------------------------------
+NEW FEATURES
+- Added support for ThingMagic through ethernet
+- Added support for ThingMagic and AdvanMux18
+
+
+Keonn AdvanNet v1.0.2 new features and fixed bugs (from v1.0.1):
+----------------------------------------------------------------------
+NEW FEATURES
+- Added support for phase angle in Impinj R220 and R420 with firmware 4.6
+- Added support for doppler frequency in Impinj R220 and R420 with firmware 4.8
+
+
+Keonn AdvanNet v1.0.1:
+----------------------------------------------------------------------
+Initial version

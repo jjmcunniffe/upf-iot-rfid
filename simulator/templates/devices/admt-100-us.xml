@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<aliases>
+	<ADMT-100-US>
+		<id>adm-100-us</id>
+		<ip>0.0.0.0</ip>
+		<reader>
+			<class>ADRD_M4_100_FOR_ADMT_US_100</class>
+			<readPower>31.5</readPower>
+			<sensitivity>-82</sensitivity>
+			<epcGen2>
+				<class>EPCGen2</class>
+				<invCommand>
+				    <singulation>
+				        <class>EPCGen2_Singulation</class>
+				        <session>1</session>
+						<target>A</target>
+				    </singulation>
+				</invCommand>
+			</epcGen2>
+		</reader>
+		<antennas>
+			<antenna>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>1:0:0-0;0;0</definition>
+			</antenna>
+			<antenna>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>2:0:0-0;0;0</definition>
+			</antenna>
+			<antenna>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>3:0:0-0;0;0</definition>
+			</antenna>
+			<antenna>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>4:0:0-0;0;0</definition>
+			</antenna>
+		</antennas>
+	</ADMT-100-US>
+</aliases>

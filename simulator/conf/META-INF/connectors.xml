@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='utf-8'?>
+<aliases>
+	<load-order-scope>default</load-order-scope>
+	<load-order>20000</load-order>
+	
+	<CONFIGURATION>
+		<gui.useLogin>false</gui.useLogin>
+		<gui.useSearchIp>true</gui.useSearchIp>
+		<com.thingmagic.SerialReader.StopPatch>true</com.thingmagic.SerialReader.StopPatch>
+	</CONFIGURATION>
+	
+	<DEVICE_MANAGER>
+		<runtime>
+			<class>DEVICE_RUNTIME_MGM</class>
+			<devices>
+				<device>
+					<id>aDeviceId</id>
+					<class>DEFAULT_DEVICE_RUNTIME</class>
+					<controllerMode>
+					    <class>CONTROLLER_MODE_ASYNCH</class>
+					    <startOnBoot>true</startOnBoot>
+					    <restartOnError>true</restartOnError>
+					</controllerMode>
+				</device>
+			</devices>
+		</runtime>
+	</DEVICE_MANAGER>
+	
+	<DEVICE_CONTROLLER>
+		<class>DEVICE_CONTROLLER_TRANSPARENT</class>
+		<instance.unique-id>DEVICE_CONTROLLER_TRANSPARENT</instance.unique-id>
+		<processor>
+		    <!-- Software filter -->
+			<class>FILTER</class>
+			<slave>
+			    <!-- location resolver -->
+				<class>LOC_RESOLVER</class>
+				<slave>
+				    <!-- debug on standard output -->
+					<class>DEBUG</class>
+					<slave>
+					    <!--
+					       	Tag tracker Finite State Machine
+					       	This processor generates the Hi, Bye and Inventory tags	
+					    -->
+					    <class>TRACKER</class>
+					     <slave>
+					    	<class>CSV</class>
+					    	<slave>
+					    		<class>SQL</class>
+					    	</slave>
+					    </slave>
+					</slave>
+				</slave>
+			</slave>
+		</processor>
+	</DEVICE_CONTROLLER>
+	
+	<CSV>
+	    <class>PROCESSOR_CSV_EXPORTER</class>
+		<instance.unique-id>PROCESSOR_CSV</instance.unique-id>
+		<method>process</method>
+		<enabled>false</enabled>
+		<csvFile>adrd-1.csv</csvFile>
+		<cycles>1</cycles>
+		<keepSameFile>false</keepSameFile>
+		<cronSpec>*/1 * * * *</cronSpec>
+		<uniqueEPCPerFile>True</uniqueEPCPerFile>
+	</CSV>
+	
+	<SQL>
+		<class>GENERICSQL_EXPORTER</class>
+		<instance.unique-id>PROCESSOR_SQL</instance.unique-id>
+		<enabled>false</enabled>
+		<engine>
+			<class>MYSQL_EXPORTER</class>
+			<encoding>gtin96</encoding>
+			<debug>true</debug>
+			<connString>jdbc:mysql://localhost/advannet</connString>
+			<user>username</user>
+			<password>password</password>
+			<cleanDBCron>* * * * *</cleanDBCron>
+			<cleanDbSqls>
+				<cleanDbSql>
+					<class>SQL_STATEMENT</class>
+		        	<statement>DELETE from inventory where time &lt; (${now}-3600*24*10*1000)</statement>
+				</cleanDbSql>
+				<cleanDbSql>
+					<class>SQL_STATEMENT</class>
+		        	<statement>DELETE from events where time &lt; (${now}-3600*24*10*1000)</statement>
+				</cleanDbSql>
+			</cleanDbSqls>
+		</engine>
+	</SQL>
+	
+	<FILTER>
+	    <class>PROCESSOR_FILTER</class>
+		<instance.unique-id>PROCESSOR_FILTER</instance.unique-id>
+		<!-- Whether the high level filter is enabled or not -->
+		<enabled>false</enabled>
+		<!-- regular expression used to filter tags based on their EPC. No matching tags are  excluded -->
+		<!-- ^3024.* -->
+		<regExpFilter></regExpFilter>
+		<filter>
+			<class>INVENTORY_FILTER</class>
+			<condition>
+				<class>CONDITION_AND</class>
+				<conds>
+					<cond>
+						<class>CONDITION_NOT_EQUALS</class>
+						<key>first.dataMap['key=ANTENNA_PORT'].value</key>
+						<value>2</value>
+					</cond>
+					<cond>
+						<class>CONDITION_TIME</class>
+						<keys>EPC,first.dataMap['key=ANTENNA_PORT'].value</keys>
+						<timeWindow>10000</timeWindow>
+					</cond>
+				</conds>
+			</condition>
+		</filter>
+	</FILTER>
+	
+	<!--
+		Echo processor: prints on the standard output information about
+		the tags being read.
+	-->
+	<DEBUG>
+	    <class>PROCESSOR_ECHO</class>
+		<instance.unique-id>PROCESSOR_ECHO</instance.unique-id>
+		<enabled>false</enabled>
+		<debug>false</debug>
+		<verbose>false</verbose>
+	</DEBUG>
+	
+	<LOC_RESOLVER>
+	    <class>PROCESSOR_LOCATION_RESOLVER</class>
+		<instance.unique-id>PROCESSOR_LOC_RESOLVER</instance.unique-id>
+		<!-- this is the location algorithm -->
+		<resolver>DEFAULT_RESOLVER</resolver>
+		<enabled>true</enabled>
+	</LOC_RESOLVER>
+	
+	<TRACKER>
+		<class>INVENTORY_PROCESSOR_MESSAGE_SENDER</class>
+		<instance.unique-id>PROCESSOR_TRACKER</instance.unique-id>
+		<enabled>true</enabled>
+		<debug>false</debug>
+		<debugPerf>false</debugPerf>
+		<!-- This is the service that take cares of the messages generated -->
+		<service>
+			<class>MESSAGING_SERVICE</class>
+		</service>
+		<enableHiByeMsg>false</enableHiByeMsg>
+		<enableInventoryMsg>true</enableInventoryMsg>
+		<inventoryTypeMsg>inventory</inventoryTypeMsg>
+		<!--
+			Every invCycles a full inventory will be generated.
+			The inventory generated is not accumulated.
+			If you want to receive all tags read, use invCycles=1
+		-->
+		<invCycles>1</invCycles>
+		<!-- comma separated list of attributes that won't be displayed in messages -->
+		<hiddenAtts>date,serial,agentId,sync</hiddenAtts>
+		<tracker>
+		    <!--
+				This is the object responsible for keeping track of the tags.
+				Is a simple state machine that keeps the state of all tags
+			-->
+			<class>SIMPLE_TAG_TRACKER</class>
+			<debug>false</debug>
+			<generateMoves>false</generateMoves>
+			<trackerMoveTTL>10000</trackerMoveTTL>
+			<!--
+				Input hysteresis of the tracker, when a tag is first read
+				it takes inHysteresis read cycles to mark the tag in HiState
+			-->
+			<inHysteresis>1</inHysteresis>
+			<!--
+				Output hysteresis of the tracker, when a tag is last read
+				it takes onHysteresis read cycles to mark the tag in ByState
+			-->
+			<outHysteresis>0</outHysteresis>
+			<!--
+				Message time to live in milliseconds
+				The same message won't be repeated in this ttl period
+			-->
+			<trackerTTL>5000</trackerTTL>
+		</tracker>
+	</TRACKER>
+		
+	<MESSAGING_SERVICE>
+		<class>SERVICE_MESSAGE_SENDER</class>
+		<instance.unique-id>MESSAGING_SERVICE</instance.unique-id>
+		<debugPerf>false</debugPerf>
+		<!-- List of transport services. The same messages can be sent to several destinations -->
+		<disabled>false</disabled>
+		<transports>
+			<transport>
+				<class>FORK_MESSAGE_SERVICE</class>
+				<services>
+					<service>
+						<serviceId>AdvanNetLibService</serviceId>
+					</service>
+				</services>
+				<messageFilter/>
+				<!-- If true, the system expects an answer from the destination -->
+				<synch>false</synch>
+			</transport>
+		</transports>
+		<processors/>
+	</MESSAGING_SERVICE>
+
+</aliases>

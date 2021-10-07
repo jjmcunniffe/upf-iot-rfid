@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<aliases>
+	<ADRD-M4-150.03>
+		<id>adrd-m4-150.03</id>
+		<ip>/dev/ttyO1</ip>
+		<firmware>
+		    <class>FIRMWARE_INFO</class>
+		    <version>3</version>
+		    <revision>0</revision>
+		    <keonnCode>0091103</keonnCode>
+		</firmware>
+		<reader>
+			<class>ADRD_M_150_M6E</class>
+			<readPower>30</readPower>
+		</reader>
+		<antennas>
+			<antenna>
+				<reader>1</reader>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>1:0-40;210;2</definition>
+				<locationID>loc_id</locationID>
+			</antenna>
+		</antennas>
+	</ADRD-M4-150.03>
+</aliases>

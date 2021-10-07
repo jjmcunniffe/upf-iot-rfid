@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<aliases>
+	<ADSF_100_US>
+		 <id>adsf@1</id>
+		<ip>0.0.0.0</ip>
+		<reader>
+			<class>ADRD_M4_100_FOR_ADSF_100_US</class>
+		</reader>
+		<antennas>
+			<antenna>
+				<reader>1</reader>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>1:0-40;210;2</definition>
+			</antenna>
+		</antennas>
+	</ADSF_100_US>
+</aliases>

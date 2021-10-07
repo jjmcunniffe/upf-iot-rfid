@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<aliases>
+	<ADRD-M2-50_01>
+		<id>adrd-m2-50</id>
+		<ip>0.0.0.0</ip>
+		<useBuzzer>true</useBuzzer>
+		<reader>
+			<class>ADRD_M2_50_Module</class>
+		</reader>
+		<antennas>
+			<antenna>
+				<reader>1</reader>
+				<class>ANTENNA_DEFINITION</class>
+				<definition>1:0-40;210;2</definition>
+			</antenna>
+		</antennas>
+	</ADRD-M2-50_01>
+</aliases>
