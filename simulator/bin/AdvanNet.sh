@@ -34,7 +34,7 @@ done
 CLASSPATH=$CLASSPATH:$AGENT_CLASSPATH
 export CLASSPATH;
 
-DAEMON=java
+DAEMON="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/bin/java"
 DAEMON_ARGS="$DEPLOY_OPTS com.keonn.agent.Start"
 
 $DAEMON $DAEMON_ARGS
