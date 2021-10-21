@@ -1,8 +1,31 @@
+import express from 'express';
+import http from 'http';
+import { Server } from 'socket.io';
 import { Socket } from 'net';
 
 import Device from './components/Device.js';
 import { getTagId } from './components/tag.js';
 
+// Route using a basic HTTP server.
+const app = express();
+const server = http.createServer(app);
+
+app.get('/', ({res}) => {
+    res.json({message: "Welcome to the backend!"});
+});
+
+// Create a websocket for communication with client.
+const io = new Server(server, {
+    cors: {
+      origin: "*",
+    }
+});
+
+io.on("connection", () => {
+    console.log("[SERVER-SOCKET] Client connected.");
+});
+
+// Communicate with Advannet.
 try {
     // Start the device before starting realtime.
     const device = new Device();
@@ -22,6 +45,7 @@ try {
             if (tag !== null) {
                 // Temporary.
                 console.log("Tag = " + tag);
+                io.emit("TagFound", tag);
             }
         })
         .on('end', function() {
@@ -35,3 +59,9 @@ try {
 } catch (e) {
     throw new Error(`[REALTIME-SOCKET] Error retrieving data: ${e}`);
 }
+
+// Run the http server on the correct port.
+const port = process.env.SERVER_PORT || 3001;
+server.listen(port, () => {
+    console.log(`[SERVER] Running on *:${port}`);
+});
