@@ -1,6 +1,5 @@
 import fetch from 'node-fetch';
 import { parseStringPromise } from 'xml2js';
-
 export default class Device {
     address;
     id;
@@ -11,7 +10,7 @@ export default class Device {
     socketUrl;
 
     constructor() {
-        this.address = process.env.SERVER_ADDRESS || "localhost";
+        this.address = process.env.DEVICE_ADDRESS || "localhost";
         this.id = process.env.DEVICE_ID || "simulator";
         this.port = process.env.SERVER_PORT || 3161;
         this.protocol = process.env.PROTOCOL || "http";
@@ -32,18 +31,23 @@ export default class Device {
     async isRunning() {
         // Request the status of the device.
         let response;
+        let status;
 
-        console.log("[DEVICE] Checking status...");
         try {
+            console.log("[DEVICE] Checking status...");
             response = await fetch(this.url);
+                status = await response.text();
         }
         catch(e) {
-            throw new Error(`[DEVICE] Error while retrieving status: ${e}`);
+            // If the device is powered off it will refuse connection.
+            if (e.code === "ECONNREFUSED") {
+                throw new Error("[DEVICE] Connection refused.")
+            }
+            throw new Error(`[DEVICE] Could not retrieve status: ${e}`);
         }
 
         // Parse status as XML and extract the <status> tag.
-        const statusRaw = await response.text();
-        let status = await parseStringPromise(statusRaw);
+        status = await parseStringPromise(status);
         status = status.response.data[0].devices[0].device[0].status[0];
 
         if (status == "RUNNING") {
@@ -71,10 +75,10 @@ export default class Device {
                     console.log("[DEVICE] Successfully started.");
                     return true;
                 }
-                throw new Error("Unknown Error.");
+                throw new Error("[DEVICE] Unknown Error.");
             }
         } catch(e) {
-            throw new Error(`[DEVICE] Error when starting device: ${e}`);
+            throw e;
         }
     }
 

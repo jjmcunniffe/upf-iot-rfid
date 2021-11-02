@@ -52,12 +52,12 @@ try {
             console.log('[REALTIME-SOCKET] Disconnected.');
         })
         .on('error', function(e) {
-            throw new Error(e.message);
+            throw new Error(`[REALTIME-SOCKET] Could not retrieve data: ${e.message}`);
         });
 
     socket.connect(device.socketPort, device.address);
 } catch (e) {
-    throw new Error(`[REALTIME-SOCKET] Error retrieving data: ${e}`);
+    throw e;
 }
 
 // Run the http server on the correct port.

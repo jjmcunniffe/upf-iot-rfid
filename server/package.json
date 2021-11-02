@@ -1,19 +1,24 @@
 {
-  "name": "test-rfid",
+  "name": "upf-iot-rfid",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node -r dotenv/config .",
+    "dev": "nodemon ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "node-fetch": "^3.0.0",
     "socket.io": "^4.3.1",
     "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
   }
 }
