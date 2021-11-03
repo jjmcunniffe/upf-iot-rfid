@@ -10,10 +10,11 @@ export async function getTagId(data) {
         try {
             let tag = await parseStringPromise(data);
             let type = tag.inventory.type[0];
+            const ts = tag.inventory.ts[0];
 
             if (type === "inventory") {
                 tag = tag.inventory.data[0].inventory[0].items[0].item[0].data[0].hexepc[0];
-                return tag;
+                return { id: tag, ts };
             }
             throw new Error(`Invalid input: ${tag}`)
         } catch(e) {

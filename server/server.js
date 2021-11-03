@@ -37,6 +37,7 @@ try {
     await device.start();
 
     // Handle connection to the Advannet realtime socket.
+    let prevTs = "";
     const socket = new Socket();
 
     socket
@@ -46,11 +47,18 @@ try {
         .on('data', async function(chunk) {
             let data = chunk.toString(); // Chunk is a buffer.
             let product = {};
-            const tag = await getTagId(data);
 
+            const tag = await getTagId(data);
             if (tag !== null) {
-                // Send the product json to the client.
-                product = database[tag];
+                let id = tag.id;
+                let ts = tag.ts;
+
+                // Send the product and the time it was last scanned.
+                product = database[id];
+                if (prevTs != ts) {
+                    product.ts = Date.now()
+                    prevTs = ts;
+                }
                 io.emit("TagFound", product);
             }
         })

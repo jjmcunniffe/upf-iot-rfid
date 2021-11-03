@@ -11,7 +11,8 @@ function App() {
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
     socket.on("TagFound", data => {
-      setResponse(data);
+      console.log(data);
+      setResponse(data.sku);
     });
   }, []);
   return (
