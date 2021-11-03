@@ -6,6 +6,8 @@ import { Socket } from 'net';
 import Device from './components/Device.js';
 import { getTagId } from './components/tag.js';
 
+import database from './database.js'
+
 // Route using a basic HTTP server.
 const app = express();
 const server = http.createServer(app);
@@ -13,6 +15,9 @@ const server = http.createServer(app);
 app.get('/', ({res}) => {
     res.json({message: "Welcome to the backend!"});
 });
+
+// Expose the public folder for images.
+app.use(express.static('public'));
 
 // Create a websocket for communication with client.
 const io = new Server(server, {
@@ -40,12 +45,13 @@ try {
         })
         .on('data', async function(chunk) {
             let data = chunk.toString(); // Chunk is a buffer.
+            let product = {};
             const tag = await getTagId(data);
 
             if (tag !== null) {
-                // Temporary.
-                console.log("Tag = " + tag);
-                io.emit("TagFound", tag);
+                // Send the product json to the client.
+                product = database[tag];
+                io.emit("TagFound", product);
             }
         })
         .on('end', function() {
