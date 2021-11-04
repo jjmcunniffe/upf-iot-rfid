@@ -32,7 +32,7 @@ const Loading = () => (
         <LoadingCard>
             <Loader type="Rings" color="#41CB8D" height={120} width={120} />
             <p>Place an item on the scanner to get started...</p>
-            <Credit>RFID Product by Jonathan and Pòl</Credit>
+            <Credit>RFID Project by Jonathan and Pol</Credit>
         </LoadingCard>
     </Wrapper>
 );

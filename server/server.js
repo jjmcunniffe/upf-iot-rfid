@@ -26,10 +26,6 @@ const io = new Server(server, {
     }
 });
 
-io.on("connection", () => {
-    console.log("[SERVER-SOCKET] Client connected.");
-});
-
 // Communicate with Advannet.
 try {
     // Start the device before starting realtime.

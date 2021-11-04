@@ -34,11 +34,21 @@ const App = () => {
 
         // Each item requires a unique key.
         const itemKey = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-        
-        dispatch({
-          type: "setItems",
-          payload: [...items, (<Product key={itemKey} data={data} />)]
-        });
+
+        if (data !== null) {
+          // Stop duplicates from being pushed to the stack.
+          if (items.length > 0) {
+            const current = items[0].props.data.sku;
+            if (current === data.sku) {
+              return;
+            }
+          }
+
+          dispatch({
+            type: "setItems",
+            payload: [...items, (<Product key={itemKey} data={data} />)]
+          });
+        }
     }
 
     // Register the listener.
