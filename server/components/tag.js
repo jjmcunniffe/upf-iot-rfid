@@ -14,7 +14,7 @@ export async function getTagId(data) {
 
             if (type === "inventory") {
                 tag = tag.inventory.data[0].inventory[0].items[0].item[0].data[0].hexepc[0];
-                return { id: tag, ts };
+                return tag;
             }
             throw new Error(`Invalid input: ${tag}`)
         } catch(e) {

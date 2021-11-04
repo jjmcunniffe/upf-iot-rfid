@@ -1,27 +1,11 @@
-import React, { useState, useEffect } from "react";
-import socketIOClient from "socket.io-client";
+import React from 'react';
 
-import './App.css';
+import Carousel from './components/Carousel/Carousel';
 
-const ENDPOINT = "http://localhost:3001";
-
-function App() {
-  const [response, setResponse] = useState("");
-
-  useEffect(() => {
-    const socket = socketIOClient(ENDPOINT);
-    socket.on("TagFound", data => {
-      console.log(data);
-      setResponse(data.sku);
-    });
-  }, []);
-  return (
-    <div className="App">
-      <p>
-        Tag found with id of {response}.
-      </p>
-    </div>
-  );
-}
+const App = () => (
+  <div className="App">
+    <Carousel />
+  </div>
+);
 
 export default App;

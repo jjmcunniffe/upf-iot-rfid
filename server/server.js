@@ -37,7 +37,6 @@ try {
     await device.start();
 
     // Handle connection to the Advannet realtime socket.
-    let prevTs = "";
     const socket = new Socket();
 
     socket
@@ -50,15 +49,8 @@ try {
 
             const tag = await getTagId(data);
             if (tag !== null) {
-                let id = tag.id;
-                let ts = tag.ts;
-
-                // Send the product and the time it was last scanned.
-                product = database[id];
-                if (prevTs != ts) {
-                    product.ts = Date.now()
-                    prevTs = ts;
-                }
+                // Send the product.
+                product = database[tag];
                 io.emit("TagFound", product);
             }
         })
