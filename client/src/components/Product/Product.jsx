@@ -2,30 +2,49 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { slideInUp } from 'react-animations';
 
+import Card from '../Card';
+import Image from './components/Image';
+import Currency from './components/Currency';
+import Info from './components/Info';
+import Inventory from './components/Inventory';
+import Scanned from './components/Scanned';
+
+/*
+font-weight: 600;
+    text-transform: uppercase;
+*/
+
 const entryAnimation = keyframes`${slideInUp}`;
+
+const Container = styled.div`
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+`;
 
 const Wrapper = styled.li`
     animation: .5s ${entryAnimation};
-    background-color: #F1F1F1;
     display: inline-block;
     margin: 5px;
-    max-width: 300px;
-    width: 100%;
+    width: 300px;
+    height: 500px;
 `;
 
 const Product = ({data}) => {
     const { title, description, image, price, currency, inventory } = data;
-    const imageUrl = `http://localhost:3001/images/${image}`;
     return (
-        <Wrapper>
-            <div>
-                <img src={imageUrl} width={200} height={200} alt={title}/>
-                <h1>{title}</h1>
-                <p>{`${price} ${currency}`}</p>
-                <p>{`${inventory} available`}</p>
-                <p>{description}</p>
-            </div>
-        </Wrapper>
+        <Container>
+            <Wrapper>
+                <Card>
+                    <Image image={image} alt={title} />
+                    <Scanned />
+                    <Currency currency={currency} price={price} />
+                    <Inventory inventory={inventory} />
+                    <Info title={title} description={description} />
+                </Card>
+            </Wrapper>
+        </Container>
     );
 }
 

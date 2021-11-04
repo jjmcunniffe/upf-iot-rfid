@@ -11,6 +11,7 @@ const Wrapper = styled.div`
 `;
 
 const LoadingCard = styled(Card)`
+    box-shadow: 0px 5px 37px 11px rgba(10,35,24,0.5);
     height: 300px;
     left: 50%;
     padding: 20px 10px 10px 10px;
