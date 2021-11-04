@@ -7,20 +7,14 @@ import Image from './components/Image';
 import Currency from './components/Currency';
 import Info from './components/Info';
 import Inventory from './components/Inventory';
-import Scanned from './components/Scanned';
-
-/*
-font-weight: 600;
-    text-transform: uppercase;
-*/
 
 const entryAnimation = keyframes`${slideInUp}`;
 
 const Container = styled.div`
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -50%);
 `;
 
 const Wrapper = styled.li`
@@ -38,7 +32,6 @@ const Product = ({data}) => {
             <Wrapper>
                 <Card>
                     <Image image={image} alt={title} />
-                    <Scanned />
                     <Currency currency={currency} price={price} />
                     <Inventory inventory={inventory} />
                     <Info title={title} description={description} />
